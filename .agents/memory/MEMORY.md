@@ -1,0 +1,1 @@
+- [Frontend working rules](frontend-working-rules.md) — preserve the uploaded reference, work only on frontend, and pause for approval between units.
