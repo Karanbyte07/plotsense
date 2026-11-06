@@ -1,0 +1,19 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.hf_cache/
+
+# Generated at build time (reproducible via scripts/) — never push these
+data/raw/
+data/embeddings.npy
+data/lexical_tokens.pkl
+data/faiss.index
+data/index_meta.json
+data/corpus.json
+
+# Large optional enrichment source — omitted from deploys (build_corpus skips it
+# gracefully; keep it out of the Hugging Face Space to stay under size limits)
+data/movies_dataframe.json

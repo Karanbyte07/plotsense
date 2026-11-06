@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# generated at build time inside the image
+data/raw/
+data/embeddings.npy
+data/lexical_tokens.pkl
+data/corpus.json
+data/index_meta.json
+.hf_cache/
