@@ -1,6 +1,7 @@
 # CineMatch frontend
 
 ## Run and verify
+- Post-merge setup runs `scripts/post-merge.sh`: restore locked npm dependencies, run frontend unit tests, then type-check and build. It does not provision backend data or download browsers.
 - Node.js 24; dependencies are managed by npm workspaces with application code in `frontend/`.
 - Install from the repository root with `npm ci`.
 - Run `npm run dev` (Vite on 0.0.0.0:5000, proxied preview hosts allowed).
