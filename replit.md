@@ -9,7 +9,7 @@
 
 ## Scope and reference
 The uploaded frontend ZIP is the preserved design reference. Conversion is incremental, not a redesign.
-The frontend foundation, shared visual shell, and API support utilities are implemented; no search UI or movie data is connected.
+The frontend foundation, shared visual shell, API support utilities, and original SearchConsole are implemented. Search and autocomplete use the real API helpers; results and detail pages remain intentionally out of scope.
 The shell preserves the reference Atmosphere and Wordmark, with reduced-motion support.
 Fraunces, Inter Tight, and JetBrains Mono load from Google Fonts; network access to Google Fonts is required for the original typography.
 The supplied movies-app.png is reused as the favicon. The uploaded ZIP remains unchanged.
@@ -22,3 +22,4 @@ Do not put secrets in browser-facing Vite environment variables.
 - Helpers throw errors rather than returning fake data. Consumers must handle failed requests and can pass `{ signal }` for cancellation.
 - Run `npm test --workspace frontend` on Node.js 24 for API and formatting unit tests. Network responses are mocked only inside tests, never in application code.
 - The original helper files were absent from the reference ZIP, so formatting conventions are reconstructed from their component call sites.
+- Run `npm run test:search` for browser checks of autocomplete, keyboard/touch selection, controls, failures, cancellation, and stale responses. Install Chromium with `npx playwright install chromium` first. Test-only API fixtures do not supply application data.
