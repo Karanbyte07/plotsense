@@ -7,9 +7,13 @@
   "scripts": {
     "dev": "npm run dev --workspace frontend",
     "build": "npm run build --workspace frontend",
-    "check": "npm run check --workspace frontend"
+    "check": "npm run check --workspace frontend",
+    "test:search": "playwright test"
   },
   "dependencies": {
     "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
   }
 }
