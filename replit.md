@@ -9,9 +9,16 @@
 
 ## Scope and reference
 The uploaded frontend ZIP is the preserved design reference. Conversion is incremental, not a redesign.
-Only frontend foundation and shared visual shell are currently approved; no search or movie data is connected.
+The frontend foundation, shared visual shell, and API support utilities are implemented; no search UI or movie data is connected.
 The shell preserves the reference Atmosphere and Wordmark, with reduced-motion support.
 Fraunces, Inter Tight, and JetBrains Mono load from Google Fonts; network access to Google Fonts is required for the original typography.
 The supplied movies-app.png is reused as the favicon. The uploaded ZIP remains unchanged.
-The existing Python backend is unchanged. Later integration requires the missing API/type/format helpers and a running backend with real movie data.
+The existing Python backend is unchanged. API/type/format helpers mirror its contracts; live integration still requires a running backend with real movie data.
 Do not put secrets in browser-facing Vite environment variables.
+
+## API support
+- `VITE_API_URL` is the optional public backend origin (without `/api`). When omitted, requests use relative `/api/...` URLs and require same-origin routing to a real backend.
+- The current Vite-only server does not provide an API proxy. Its HTML fallback is rejected as an API configuration error, not treated as movie data.
+- Helpers throw errors rather than returning fake data. Consumers must handle failed requests and can pass `{ signal }` for cancellation.
+- Run `npm test --workspace frontend` on Node.js 24 for API and formatting unit tests. Network responses are mocked only inside tests, never in application code.
+- The original helper files were absent from the reference ZIP, so formatting conventions are reconstructed from their component call sites.
