@@ -10,7 +10,8 @@
 
 ## Scope and reference
 The uploaded frontend ZIP is the preserved design reference. Conversion is incremental, not a redesign.
-The frontend foundation, shared visual shell, API support utilities, and original SearchConsole are implemented. Search and autocomplete use the real API helpers; results and detail pages remain intentionally out of scope.
+The frontend foundation, shared visual shell, API support utilities, original SearchConsole, and results surface are implemented. Search and autocomplete use the real API helpers. Results include the compact header, query insights, movie cards, score meters, similar-title searches, loading skeletons, error/retry and empty states.
+Movie detail dialogs and landing catalog features remain out of scope. Card poster/title content is deliberately noninteractive until the detail feature is approved; the More like this and score tooltip controls work.
 The shell preserves the reference Atmosphere and Wordmark, with reduced-motion support.
 Fraunces, Inter Tight, and JetBrains Mono load from Google Fonts; network access to Google Fonts is required for the original typography.
 The supplied movies-app.png is reused as the favicon. The uploaded ZIP remains unchanged.

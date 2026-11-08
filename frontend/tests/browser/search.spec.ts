@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { searchResponse } from "./fixtures";
 
 const suggestions = [
   { id: "1", title: "Inception", year: 2010, poster_url: null },
@@ -14,7 +15,7 @@ test("debounce, minimum length, keyboard selection, controls and request payload
   });
   await page.route("**/api/search", async route => {
     searches.push(route.request().postDataJSON());
-    await route.fulfill({ json: { count: 2 } });
+    await route.fulfill({ json: searchResponse(2) });
   });
   await page.goto("/");
   const input = page.getByRole("combobox");
@@ -39,6 +40,7 @@ test("debounce, minimum length, keyboard selection, controls and request payload
     query: "Inception", fusion: "rrf", lexical_weight: 0.5,
     semantic_weight: 0.5, rerank: true, explain: true,
   });
+  await page.getByRole("button", { name: "engine +" }).click();
   await page.getByRole("radio", { name: "Weighted" }).click();
   const slider = page.getByRole("slider");
   await slider.fill("70");
@@ -59,7 +61,7 @@ test("visible failures, retry, blank queries and cancellation", async ({ page })
     if (calls === 1) await route.fulfill({ status: 503, json: { detail: "Engine unavailable" } });
     else {
       await new Promise(resolve => setTimeout(resolve, 500));
-      await route.fulfill({ json: { count: 7 } }).catch(() => {});
+      await route.fulfill({ json: searchResponse(7) }).catch(() => {});
     }
   });
   await page.goto("/");
@@ -107,7 +109,7 @@ test("new searches replace in-flight searches and suggestion clicks submit once"
     const query = route.request().postDataJSON().query;
     queries.push(query);
     if (query === "old") await new Promise(resolve => setTimeout(resolve, 600));
-    await route.fulfill({ json: { count: query === "old" ? 99 : 2 } }).catch(() => {});
+    await route.fulfill({ json: searchResponse(query === "old" ? 99 : 2) }).catch(() => {});
   });
   await page.goto("/");
   const input = page.getByRole("combobox");
@@ -126,11 +128,12 @@ test("mobile touch selection and console fit the viewport", async ({ browser }) 
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   const page = await context.newPage();
   await page.route("**/api/suggest?**", route => route.fulfill({ json: suggestions }));
-  await page.route("**/api/search", route => route.fulfill({ json: { count: 1 } }));
+  await page.route("**/api/search", route => route.fulfill({ json: searchResponse(1) }));
   await page.goto("/");
   await page.getByRole("combobox").fill("in");
   await page.getByRole("option").first().tap();
   await expect(page.getByRole("status")).toContainText("1 match.");
+  await page.getByRole("button", { name: "engine +" }).tap();
   await page.getByRole("radio", { name: "Weighted" }).tap();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await context.close();
