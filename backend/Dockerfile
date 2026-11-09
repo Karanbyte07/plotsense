@@ -23,12 +23,10 @@ RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 COPY --chown=user . .
 
-# Build the corpus + index at image-build time so the container starts fast and never
-# downloads anything at request time. (movies_dataframe.json is optional enrichment;
-# build_corpus skips it gracefully if it isn't present.)
+# Download NLTK data and build corpus/index if not already present
 RUN python -c "import nltk;[nltk.download(p) for p in ['stopwords','wordnet','omw-1.4']]" \
- && python scripts/build_corpus.py \
- && python scripts/build_index.py
+ && ( [ -f data/corpus.json ] || python scripts/build_corpus.py ) \
+ && ( [ -f data/embeddings.npy ] && [ -f data/lexical_tokens.pkl ] || python scripts/build_index.py )
 
 EXPOSE 7860
 CMD uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-7860}

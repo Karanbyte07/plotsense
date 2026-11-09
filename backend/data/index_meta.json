@@ -1,0 +1,6 @@
+{
+  "corpus_size": 9500,
+  "embedding_model": "BAAI/bge-small-en-v1.5",
+  "dim": 384,
+  "normalized": true
+}
