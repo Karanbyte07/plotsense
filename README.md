@@ -144,19 +144,12 @@ PlotSense/
 │   ├── vite.config.js               # Dev proxy & path aliases
 │   └── tailwind.config.js
 │
-├── ARCHITECTURE.md                  # Detailed ML theory and retrieval walkthrough
-└── README.md
+├── README.md
 ```
 
 ---
 
 ## 🚀 Getting Started
-
-### Prerequisites
-- **Node.js** (v18+) & **npm**
-- **Python** (v3.10+)
-
----
 
 ### 1. Run the Backend
 
