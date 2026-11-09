@@ -62,7 +62,7 @@ export function PosterFallback({ title, year }) {
           background: 'linear-gradient(90deg, transparent, rgba(245,184,65,0.35), transparent)',
         }}
       />
-      <span className="label-eyebrow mb-2">CineMatch</span>
+      <span className="label-eyebrow mb-2">PlotSense</span>
       <span className="font-display text-md font-semibold leading-tight text-ink-2 clamp-4" style={{ WebkitLineClamp: 4 }}>
         {title}
       </span>

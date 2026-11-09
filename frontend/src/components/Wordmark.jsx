@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const EASE = [0.16, 1, 0.3, 1];
 
 /**
- * "CINEMATCH" logotype. Fraunces high-contrast serif, a thin amber signal
+ * "PLOTSENSE" logotype. Fraunces high-contrast serif, a thin amber signal
  * line that draws itself, and a serif-italic tagline.
  * `compact` shrinks it for the sticky top bar after a search.
  *
@@ -14,7 +14,7 @@ export function Wordmark({ compact = false }) {
     return (
       <div className="flex items-center gap-3">
         <span className="font-display text-lg font-semibold tracking-[-0.01em] text-ink">
-          Cine<span className="text-amber">Match</span>
+          Plot<span className="text-amber">Sense</span>
         </span>
         <span className="hidden h-4 w-px bg-line-strong sm:block" />
         <span className="telemetry hidden text-[11px] uppercase tracking-[0.18em] text-ink-3 sm:block">
@@ -32,7 +32,7 @@ export function Wordmark({ compact = false }) {
         transition={{ duration: 0.7, ease: EASE }}
         className="font-display text-[clamp(44px,9vw,64px)] font-semibold leading-[1.02] tracking-[-0.02em] text-ink"
       >
-        CINE<span className="text-amber">MATCH</span>
+        PLOT<span className="text-amber">SENSE</span>
       </motion.h1>
 
       <motion.div
