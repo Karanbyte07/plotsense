@@ -436,7 +436,7 @@ function WeightSlider({ value, onChange }) {
 
 function RerankSwitch({ value, onChange }) {
   return (
-    <label className="flex cursor-pointer select-none items-center gap-2">
+    <label className="inline-flex cursor-pointer select-none items-center gap-2">
       <span className="label-eyebrow">Rerank</span>
       <button
         type="button"
@@ -444,15 +444,13 @@ function RerankSwitch({ value, onChange }) {
         aria-checked={value}
         aria-label="Toggle cross-encoder rerank"
         onClick={() => onChange(!value)}
-        className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-chip border px-0.5 transition-colors duration-200 ${
+        className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full border p-0.5 transition-colors duration-200 ${
           value ? 'border-amber-dim bg-amber/[0.18]' : 'border-line bg-black/30'
         }`}
       >
-        <motion.span
-          animate={{ x: value ? 16 : 0 }}
-          transition={{ type: 'spring', stiffness: 620, damping: 34 }}
-          className={`h-3.5 w-3.5 rounded-full ${
-            value ? 'bg-amber' : 'bg-ink-3'
+        <span
+          className={`block h-3.5 w-3.5 rounded-full transition-transform duration-200 ease-in-out ${
+            value ? 'translate-x-[16px] bg-amber' : 'translate-x-0 bg-ink-3'
           }`}
         />
       </button>
