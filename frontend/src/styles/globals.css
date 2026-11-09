@@ -6,9 +6,6 @@
    GOTHAM NOIR — design tokens
    ============================================================ */
 :root {
-  --font-fraunces: "Fraunces";
-  --font-inter-tight: "Inter Tight";
-  --font-jetbrains-mono: "JetBrains Mono";
   --bg-void: #070809;
   --bg-base: #0b0d10;
   --panel: #101317;
@@ -25,12 +22,19 @@
   --steel-dim: #2c4a57;
   --danger: #e5624c;
   --good: #7fb77e;
+
+  /* Font variables (loaded via Google Fonts in index.html) */
+  --font-fraunces: 'Fraunces', Georgia, serif;
+  --font-inter-tight: 'Inter Tight', system-ui, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* ============================================================
    Base reset
    ============================================================ */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   min-width: 0;
 }
@@ -302,3 +306,4 @@ a {
     transition-duration: 0.001ms !important;
   }
 }
+
