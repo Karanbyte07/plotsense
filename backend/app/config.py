@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     # ---- models ----
     embedding_model: str = "BAAI/bge-small-en-v1.5"
     reranker_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
-    enable_reranker: bool = True
+    enable_reranker: bool = False  # Disabled by default so it stays under 512MB RAM on free Render tier
 
     # ---- BM25+ hyper-params (tuned for short keyword-dense docs) ----
     bm25_k1: float = 1.5
