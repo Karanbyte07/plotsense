@@ -1,2 +1,0 @@
-- [Frontend working rules](frontend-working-rules.md) — preserve the uploaded reference, work only on frontend, and pause for approval between units.
-- [Browser testing environment](browser-testing.md) — use the supplied Chromium on Replit; downloaded browser binaries may lack Nix shared libraries.
