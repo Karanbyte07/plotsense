@@ -81,6 +81,14 @@ button {
 input,
 textarea {
   font-family: inherit;
+  outline: none;
+}
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none;
 }
 
 a {
@@ -89,9 +97,9 @@ a {
 }
 
 /* ============================================================
-   Focus ring — amber, clearly visible
+   Focus ring — amber, clearly visible (excluding text inputs)
    ============================================================ */
-:focus-visible {
+:focus-visible:not(input):not(textarea) {
   outline: 2px solid var(--amber);
   outline-offset: 2px;
   border-radius: 4px;

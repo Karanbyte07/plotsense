@@ -197,7 +197,7 @@ export function SearchConsole({
               aria-activedescendant={
                 activeIndex >= 0 ? `${listboxId}-opt-${activeIndex}` : undefined
               }
-              className={`w-full bg-transparent text-ink outline-none placeholder:text-ink-3 ${
+              className={`w-full border-none bg-transparent text-ink outline-none ring-0 placeholder:text-ink-3 focus:border-none focus:outline-none focus:ring-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-0 ${
                 compact ? 'text-md' : 'text-md sm:text-lg'
               }`}
             />
