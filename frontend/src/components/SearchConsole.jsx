@@ -444,15 +444,15 @@ function RerankSwitch({ value, onChange }) {
         aria-checked={value}
         aria-label="Toggle cross-encoder rerank"
         onClick={() => onChange(!value)}
-        className={`relative h-5 w-9 rounded-chip border transition-colors duration-200 ${
+        className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-chip border px-0.5 transition-colors duration-200 ${
           value ? 'border-amber-dim bg-amber/[0.18]' : 'border-line bg-black/30'
         }`}
       >
         <motion.span
-          layout
+          animate={{ x: value ? 16 : 0 }}
           transition={{ type: 'spring', stiffness: 620, damping: 34 }}
-          className={`absolute top-1/2 h-3.5 w-3.5 -translate-y-1/2 rounded-full ${
-            value ? 'left-[18px] bg-amber' : 'left-[3px] bg-ink-3'
+          className={`h-3.5 w-3.5 rounded-full ${
+            value ? 'bg-amber' : 'bg-ink-3'
           }`}
         />
       </button>
